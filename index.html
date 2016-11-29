@@ -1,0 +1,25 @@
+<html>
+<body>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script>
+
+  // get all the trainer entries
+  $.get('http://localhost:3000/allTrainers', function(data){
+    console.log(data);
+  });
+
+  var newTrainerToAdd = {
+    name: 'Austin',
+    languages: ['Python', 'Java']
+  };
+
+  var json = JSON.stringify(newTrainerToAdd);
+
+  // create a new trainer entry
+  $.post('http://localhost:3000/newTrainer', json)
+  .done(function(data){
+    console.log(data);
+  });
+  </script>
+</body>
+</html>
